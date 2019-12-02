@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { CountryListComponent } from './country-list/country-list.component';
-import { MatNavList, MatListModule } from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -13,7 +13,6 @@ import { MatNavList, MatListModule } from '@angular/material/list';
     CommonModule,
     HomeRoutingModule,
     MatListModule,
-    MatNavList,
   ]
 })
 export class HomeModule { }
