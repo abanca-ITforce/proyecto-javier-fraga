@@ -1,8 +1,8 @@
-<mat-card class="example-card">
+<mat-card class="example-card" *ngIf="country$ | async as country">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    <div mat-card-avatar ></div>
+    <mat-card-title>{{country.name}}</mat-card-title>
+    <mat-card-subtitle>{{country.id}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <p>
@@ -12,8 +12,7 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
+    <button mat-button routerLink="">Back</button>
   </mat-card-actions>
 </mat-card>
 

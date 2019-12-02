@@ -4,8 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: ':id', loadChildren: () => import('./country/country.module').then(m => m.CountryModule) }];
+  { path: '', component: HomeComponent }
+];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
     countries$ = this.countryService.getAllCountries();
 
   constructor(private countryService: CountryService) {
-    console.log(this.countries$);
+
   }
 
   ngOnInit() {
