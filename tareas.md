@@ -2,7 +2,7 @@
 
 ## Mínimo
 
-- [ ] `/` Mostrar un listado de todos los países
+- [ x] `/` Mostrar un listado de todos los países
 - [ ] `/country/:COD3` Ver datos básicos de un país
 
 ## Completo
