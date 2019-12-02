@@ -3,13 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
+import { CountryListComponent } from './country-list/country-list.component';
+import { MatNavList, MatListModule } from '@angular/material/list';
 
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, CountryListComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    MatListModule,
+    MatNavList,
   ]
 })
 export class HomeModule { }
