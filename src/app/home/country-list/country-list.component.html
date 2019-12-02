@@ -1,6 +1,6 @@
  <mat-nav-list *ngIf="countries$ | async as countries; else empty">
-  <a mat-list-item routerLink="" *ngFor="let country of countries"> {{ country.name }} </a>
+  <a mat-list-item [routerLink]="country.id" *ngFor="let country of countries"> {{ country.name }} </a>
 </mat-nav-list>
-<ng-template #else>
+<ng-template #empty>
 <h2>Cargando...</h2>
 </ng-template>
