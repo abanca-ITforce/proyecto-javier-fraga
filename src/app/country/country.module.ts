@@ -5,6 +5,7 @@ import { CountryRoutingModule } from './country-routing.module';
 import { CountryComponent } from './country.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
     CountryRoutingModule,
     MatCardModule,
     MatButtonModule,
+    MatIconModule
   ]
 })
 export class CountryModule { }

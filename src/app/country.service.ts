@@ -22,7 +22,7 @@ export class CountryService {
 
   getCountryById$(countryId) {
     return(this.http.get<any[]>(this.url + '/' + countryId + '?' + this.finUrl)
-    .pipe(map(data => (data[1])),map(data => data[0]))
+    .pipe(map(data => (data[1])), map(data => data[0]))
 
     );
   }
