@@ -7,13 +7,16 @@ import { map } from 'rxjs/operators';
 })
 export class CountryService {
 
-  url = 'https://api.worldbank.org/v2/country';
-  finUrl = 'per_page=1000&format=json';
+  url = 'https://api.worldbank.org/v2/';
+  format = 'per_page=1000&format=json';
 
   constructor(private http: HttpClient) { }
 
   getAllCountries() {
-    return(this.http.get<any[]>(this.url + '?' + this.finUrl)
+
+    const url = this.url + 'country?' + this.format;
+
+    return(this.http.get<any[]>(url)
     .pipe(map(data => (data[1])))
 
     );
@@ -21,9 +24,34 @@ export class CountryService {
   }
 
   getCountryById$(countryId) {
-    return(this.http.get<any[]>(this.url + '/' + countryId + '?' + this.finUrl)
-    .pipe(map(data => (data[1])), map(data => data[0]))
 
+    const url = this.url + 'country/' + countryId + '?' + this.format;
+
+    return(this.http.get<any>(url)
+    .pipe(map(data => (data[1][0])))
+    );
+  }
+
+  getAllRegions() {
+    const url = this.url + 'regions/?' + this.format;
+    return(this.http.get<any[]>(url)
+    .pipe(map(data => data[1]))
+    );
+  }
+
+  getRegionCountriesByCode$(regionCode){
+    const url = this.url + 'country?region=' + regionCode + '&' + this.format;
+    console.log(url);
+    return(this.http.get<any[]>(url)
+    .pipe(map(data => data[1]))
+    );
+  }
+
+  getRegionByCode$(regionCode){
+    const url = this.url + 'region/' + regionCode + '?' + this.format;
+
+    return(this.http.get<any>(url)
+    .pipe(map(data => (data[1][0])))
     );
   }
 }

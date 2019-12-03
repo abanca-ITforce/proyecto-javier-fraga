@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CountryService } from '../country.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-country',
@@ -9,12 +10,11 @@ import { CountryService } from '../country.service';
 })
 export class CountryComponent implements OnInit {
 
-  country$;
+  country$: Observable<any>;
 
   constructor(activatedRoute: ActivatedRoute, countryService: CountryService) {
     const countryId = activatedRoute.snapshot.params.id;
     this.country$ = countryService.getCountryById$(countryId);
-
   }
 
   ngOnInit() {

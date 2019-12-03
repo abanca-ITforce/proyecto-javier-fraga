@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o --port=4220",
+    "deploy": "ng deploy --baseHref=/proyecto-javier-fraga/",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
