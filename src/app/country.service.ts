@@ -39,7 +39,7 @@ export class CountryService {
     );
   }
 
-  getRegionCountriesByCode$(regionCode){
+  getCountriesByRegionCode$(regionCode){
     const url = this.url + 'country?region=' + regionCode + '&' + this.format;
     console.log(url);
     return(this.http.get<any[]>(url)
