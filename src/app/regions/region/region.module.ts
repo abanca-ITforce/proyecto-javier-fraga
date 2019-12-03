@@ -5,6 +5,8 @@ import { RegionRoutingModule } from './region-routing.module';
 import { RegionComponent } from './region.component';
 import { RegionDataComponent } from './region-data/region-data.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     RegionRoutingModule,
-    SharedModule
+    SharedModule,
+    MatCardModule,
+    MatIconModule
   ]
 })
 export class RegionModule { }

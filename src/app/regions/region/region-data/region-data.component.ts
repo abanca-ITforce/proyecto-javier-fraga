@@ -8,10 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RegionDataComponent implements OnInit {
 
   @Input() region;
-
+  idNotNull;
   constructor() { }
 
   ngOnInit() {
+    if (this.region.id === '') {
+      this.idNotNull = false;
+    } else {
+      this.idNotNull = true;
+    }
   }
 
 }
