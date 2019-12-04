@@ -9,6 +9,7 @@ export class CountryService {
 
   url = 'https://api.worldbank.org/v2/';
   format = 'per_page=1000&format=json';
+  backRoute;
 
   constructor(private http: HttpClient) { }
 
@@ -47,11 +48,19 @@ export class CountryService {
     );
   }
 
-  getRegionByCode$(regionCode){
+  getRegionByCode$(regionCode) {
     const url = this.url + 'region/' + regionCode + '?' + this.format;
 
     return(this.http.get<any>(url)
     .pipe(map(data => (data[1][0])))
     );
+  }
+
+  getBackRoute() {
+    return this.backRoute;
+  }
+
+  setBackRoute(backRoute) {
+    this.backRoute = backRoute;
   }
 }

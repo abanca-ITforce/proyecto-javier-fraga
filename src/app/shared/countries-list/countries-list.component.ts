@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class CountriesListComponent implements OnInit {
 
+  @Input() route;
+
   @Input() countries: any[];
   constructor() { }
 

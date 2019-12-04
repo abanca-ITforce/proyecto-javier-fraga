@@ -11,13 +11,15 @@ import { Observable } from 'rxjs';
 export class CountryComponent implements OnInit {
 
   country$: Observable<any>;
+  backRoute;
 
-  constructor(activatedRoute: ActivatedRoute, countryService: CountryService) {
+  constructor(private activatedRoute: ActivatedRoute,private countryService: CountryService) {
     const countryId = activatedRoute.snapshot.params.id;
     this.country$ = countryService.getCountryById$(countryId);
   }
 
   ngOnInit() {
+    this.backRoute = this.countryService.getBackRoute();
   }
 
 }

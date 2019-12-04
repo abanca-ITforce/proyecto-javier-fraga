@@ -1,10 +1,10 @@
 <app-region-data *ngIf ="region$ | async as region; else emptylist"
 [region]='region'></app-region-data>
 <ng-template #empty>
-  Loading...
+  Loading region data...
 </ng-template>
 <app-countries-list *ngIf ="regionCountries$ | async as regionCountries; else emptylist"
-[countries]='regionCountries'></app-countries-list>
+[countries]='regionCountries' [route] = 'route'></app-countries-list>
 <ng-template #emptylist>
-  Loading...
+  Loading list...
 </ng-template>

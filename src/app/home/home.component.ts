@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   countries$: Observable<any[]>;
+  route = 'country';
 
   constructor(private countryService: CountryService) {
 
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.countries$ = this.countryService.getAllCountries();
-
+    this.countryService.setBackRoute('');
   }
 
 }

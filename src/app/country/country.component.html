@@ -1,4 +1,5 @@
-<app-country-card *ngIf="country$ | async as country ; else empty" [country] = 'country'></app-country-card>
+<app-country-card *ngIf="country$ | async as country ; else empty"
+[country] = 'country' [backRoute] = 'backRoute'></app-country-card>
 <ng-template else #empty>
   ...loading
 </ng-template>

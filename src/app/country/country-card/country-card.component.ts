@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CountryService } from 'src/app/country.service';
 
 @Component({
   selector: 'app-country-card',
@@ -8,8 +9,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CountryCardComponent implements OnInit {
 
   @Input() country;
+  @Input() backRoute;
 
-  constructor() { }
+  constructor(private cs: CountryService) { }
 
   ngOnInit() {
   }

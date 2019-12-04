@@ -12,6 +12,7 @@ export class RegionComponent implements OnInit {
 
   region$: Observable<any>;
   regionCountries$: Observable<any[]>;
+  route = '../../../country';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -22,5 +23,7 @@ export class RegionComponent implements OnInit {
     const regionCode = this.activatedRoute.snapshot.params.regionCode;
     this.regionCountries$ = this.countryService.getCountriesByRegionCode$(regionCode);
     this.region$ = this.countryService.getRegionByCode$(regionCode);
+    this.countryService.setBackRoute('../../regions/' + regionCode);
+
   }
 }

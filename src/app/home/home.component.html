@@ -1,6 +1,6 @@
 <app-countries-list
 *ngIf ="countries$ | async as countries; else empty"
-[countries]='countries'></app-countries-list>
+[countries]='countries' [route] = 'route'></app-countries-list>
 
 <ng-template #empty>
   Loading...
