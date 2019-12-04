@@ -42,7 +42,6 @@ export class CountryService {
 
   getCountriesByRegionCode$(regionCode){
     const url = this.url + 'country?region=' + regionCode + '&' + this.format;
-    console.log(url);
     return(this.http.get<any[]>(url)
     .pipe(map(data => data[1]))
     );
@@ -56,6 +55,39 @@ export class CountryService {
     );
   }
 
+  getAllIncomeLevels$() {
+    const url = this.url + 'incomeLevel' + '?' + this.format;
+    return(this.http.get<any[]>(url)
+    .pipe(map(data => data[1]))
+    );
+  }
+
+  getAllLendingTypes$() {
+    const url = this.url + 'lendingType' + '?' + this.format;
+    console.log(url);
+    return(this.http.get<any[]>(url)
+    .pipe(map(data => data[1]))
+    );
+  }
+
+  getCountriesBySearch$(values: any) {
+    let url = this.url + 'country?';
+    if (values.region !== '') {
+      url += 'region=' + values.region;
+    }
+    if (values.incomeLevel !== '') {
+      url += '&incomeLevel=' + values.incomeLevel;
+    }
+    if (values.lendingType !== '') {
+      url += '&lendingType=' + values.lendingType;
+    }
+    url = url + '&' + this.format;
+    console.log(url);
+    return(this.http.get<any[]>(url)
+    .pipe(map(data => data[1]))
+    );
+  }
+
   getBackRoute() {
     return this.backRoute;
   }
@@ -63,4 +95,5 @@ export class CountryService {
   setBackRoute(backRoute) {
     this.backRoute = backRoute;
   }
+
 }

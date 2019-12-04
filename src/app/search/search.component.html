@@ -1,1 +1,9 @@
-<p>search works!</p>
+<app-search-form
+[regions] = 'regions$ | async'
+[lendingTypes] ='lendingTypes$ | async'
+[incomeLevels] ='incomeLevels$ | async'
+(search) ='onSearch($event)'></app-search-form>
+
+<app-countries-list *ngIf="countries$ | async as countries"
+[countries] = 'countries'
+[route] = 'route'></app-countries-list>

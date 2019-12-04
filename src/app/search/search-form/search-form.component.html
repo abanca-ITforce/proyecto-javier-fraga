@@ -1,0 +1,48 @@
+<form [formGroup]="searchForm" novalidate (ngSubmit)="onSearch()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+        <div mat-card-avatar>
+            <mat-icon>assignment_returned</mat-icon>
+          </div>
+      <mat-card-title>Search countries by parameters</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+                <mat-select placeholder="Region" formControlName="region">
+                  <mat-option *ngFor="let region of regions" [value]="region.code">
+                    {{ region.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+              <mat-select placeholder="Lending type" formControlName="lendingType">
+                  <mat-option *ngFor="let lending of lendingTypes" [value]="lending.id">
+                    {{ lending.value }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <mat-select placeholder="Income level" formControlName="incomeLevel">
+                  <mat-option *ngFor="let income of incomeLevels" [value]="income.id">
+                    {{ income.value }}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Search</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

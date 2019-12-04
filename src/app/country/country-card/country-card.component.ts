@@ -11,7 +11,7 @@ export class CountryCardComponent implements OnInit {
   @Input() country;
   @Input() backRoute;
 
-  constructor(private cs: CountryService) { }
+  constructor() { }
 
   ngOnInit() {
   }
