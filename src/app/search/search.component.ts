@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, pipe } from 'rxjs';
 import { CountryService } from '../country.service';
 
 @Component({
@@ -17,6 +17,7 @@ export class SearchComponent implements OnInit {
 
   route = '/country';
   backRoute = '/search';
+  amountOfCountries;
 
 
 
@@ -31,6 +32,7 @@ export class SearchComponent implements OnInit {
 
   onSearch(values) {
     this.countries$ = this.countryService.getCountriesBySearch$(values);
-    }
+    this.amountOfCountries = values.nCountries;
+  }
 
 }

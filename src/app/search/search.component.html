@@ -6,4 +6,5 @@
 
 <app-countries-list *ngIf="countries$ | async as countries"
 [countries] = 'countries'
-[route] = 'route'></app-countries-list>
+[route] = 'route'
+[amountOfCountries]="amountOfCountries"></app-countries-list>

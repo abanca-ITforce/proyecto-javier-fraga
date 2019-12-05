@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material';
 import { SharedModule } from '../shared/shared.module';
 import { FormService } from './form.service';
 
@@ -24,7 +25,8 @@ import { FormService } from './form.service';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [FormService]
 })

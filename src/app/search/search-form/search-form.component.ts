@@ -10,11 +10,8 @@ import { FormService } from '../form.service';
 export class SearchFormComponent implements OnInit {
 
   searchForm: FormGroup;
-  values = {
-  region: '',
-  incomeLevel: '',
-  lendingType: ''
-};
+
+  values = this.formService.getNewObject();
 
   @Input() regions = [];
   @Input() incomeLevels = [];
@@ -24,11 +21,13 @@ export class SearchFormComponent implements OnInit {
 
   constructor(fb: FormBuilder, private formService: FormService) {
     this.searchForm = fb.group({
-      region: ['', []],
-      incomeLevel: ['', []],
-      lendingType: ['', []],
+      region: [this.values.region, []],
+      incomeLevel: [this.values.incomeLevel, []],
+      lendingType: [this.values.lendingType, []],
+      nCountries: [this.values.nCountries, [formService.isNotNumber]],
       });
   }
+
   onSearch() {
     this.values.region =
       this.formService.valueNotNull(this.searchForm.controls.region.value);
@@ -36,8 +35,19 @@ export class SearchFormComponent implements OnInit {
       this.formService.valueNotNull(this.searchForm.controls.incomeLevel.value);
     this.values.lendingType =
       this.formService.valueNotNull(this.searchForm.controls.lendingType.value);
+    this.values.nCountries =
+      this.searchForm.controls.nCountries.value;
     this.search.emit(this.values);
   }
+
+  hasError(controlName: string, errorName: string) {
+    return this.formService.hasError(
+      controlName,
+      errorName,
+      this.searchForm
+    );
+  }
+
   ngOnInit() {
   }
 
